@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql57
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - 33306:3306
+    command:
+      - "--max_allowed_packet=512000000"
+      - "--innodb_log_file_size=2048000000"
+      - "--innodb_log_files_in_group=4"
+    volumes:
+      - ./mysql57:/var/lib/mysql
+  app:
+    image: matomo
+    depends_on:
+      - mysql
+    ports:
+      - 9080:80
+    environment:
+      MATOMO_DATABASE_HOST: mysql
+      MATOMO_DATABASE_DBNAME: matomo
+      MATOMO_DATABASE_TABLES_PREFIX: matomo_
+      MATOMO_DATABASE_USERNAME: root
+      MATOMO_DATABASE_PASSWORD:
+
+volumes:
+  mysql:
