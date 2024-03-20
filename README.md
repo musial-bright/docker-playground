@@ -1,6 +1,14 @@
 # Docker Playground
 Docker playground with some useful docker / compose files
 
+## DBs
+Default DBs and elastic search for development.
+
+```
+cd DBs
+docker compose up
+```
+
 ## matomo
 This is a simple docker compose for local matomo analytics (https://matomo.org)
 server that will run on port 9080. Initially you have to setup the DB connection and user - simply navigate to [http://localhost:9080](http://localhost:9080) and follow the matomo setup. Finally you can test you application tracking/analytics.
