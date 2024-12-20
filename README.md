@@ -1,11 +1,11 @@
 # Docker Playground
 Docker playground with some useful docker / compose files
 
-## DBs
+## Run docker container
 Default DBs and elastic search for development.
 
 ```
-cd DBs
+cd <docker compose dir>
 docker compose up
 ```
 

@@ -13,7 +13,7 @@ services:
       - "--innodb_log_file_size=2048000000"
       - "--innodb_log_files_in_group=4"
     volumes:
-      - ./mysql57:/var/lib/mysql
+      - ~/Docker/mysql57:/var/lib/mysql
   app:
     image: matomo
     depends_on:
